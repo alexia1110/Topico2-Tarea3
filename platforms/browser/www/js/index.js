@@ -91,10 +91,17 @@ function searchEarthQuake(maxlat, maxlng, minlat, minlng) {
                 array2[2]=result.features[i].properties.mag;
                 console.log(array2[2]);
             }
+<<<<<<< HEAD
             for (let i = 0; i < largo; i++) { //ahora se crean datos de la db por cada feature encontrado con sus elementos(properties)
                 sql2(array[i],array2);
             }
             //sql2(array,array2);
+=======
+            for (var i = 0; i<largo;i++){
+                sql2(array[i],array2);
+            }
+            
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
         },
         error: function(result){
             console.log(result);
@@ -103,6 +110,7 @@ function searchEarthQuake(maxlat, maxlng, minlat, minlng) {
 }
 
 
+<<<<<<< HEAD
 function sql2(array = [],array2 = [])
 {	
     //var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
@@ -146,3 +154,45 @@ function sql3()
 		}
 	}, null);
 }
+=======
+function sql2(array = [], array2 =[])
+{	
+    var array2 = [];
+	var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
+db.transaction(function (txn) {
+ txn.executeSql('CREATE TABLE IF NOT EXISTS Lugares (id integer primary key, titulo, magnitud,tiempo)');
+  txn.executeSql('delete from Lugares');
+  
+        txn.executeSql('INSERT INTO Lugares (tiempo, magnitud,titulo) VALUES (?,?,?)', [array2[0], array2[2],array2[1]]);
+  
+    
+  /*
+  txn.executeSql('SELECT * FROM Lugares', [], function(tx, results) {
+			var len = results.rows.length;
+			var i;
+			console.log(len);
+			for (i = 0; i < len; i++) {
+				$("#lista_de_Lugares").append("" + results.rows.item(i).tiempo + " - " + results.rows.item(i).magnitud +" - " + results.rows.item(i).titulo + "<br>");
+			}*/
+		
+
+})
+};//fin function
+
+function sql3(){
+    var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
+db.transaction(function (txn) {
+    txn.executeSql('SELECT * FROM Lugares', [], function(tx, results) {
+        var len = results.rows.length;
+        var i;
+        console.log(len);
+        for (i = 0; i < len; i++) {
+            $("#lista_de_Lugares").append("" + results.rows.item(i).tiempo + " - " + results.rows.item(i).magnitud +" - " + results.rows.item(i).titulo + "<br>");
+        }
+    }, null);
+
+});
+}
+
+
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96

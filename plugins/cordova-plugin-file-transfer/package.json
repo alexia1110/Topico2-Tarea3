@@ -21,7 +21,11 @@
   "_resolved": "https://registry.npmjs.org/cordova-plugin-file-transfer/-/cordova-plugin-file-transfer-1.6.3.tgz",
   "_shasum": "6c71de63b076cbec570eca664586ff9a51b8ac21",
   "_spec": "cordova-plugin-file-transfer@~1.6.3",
+<<<<<<< HEAD
   "_where": "C:\\Users\\firivas\\gitU\\Topico2-Tarea3",
+=======
+  "_where": "/Users/eliana.alexia/Desktop/Ayudantia/EarthQuake",
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
   "author": {
     "name": "Apache Software Foundation"
   },

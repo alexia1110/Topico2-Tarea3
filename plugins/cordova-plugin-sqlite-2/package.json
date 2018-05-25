@@ -21,7 +21,11 @@
   "_resolved": "https://registry.npmjs.org/cordova-plugin-sqlite-2/-/cordova-plugin-sqlite-2-1.0.5.tgz",
   "_shasum": "afdaf27c15ae8ba2585ebf5db92410d03f6b1f15",
   "_spec": "cordova-plugin-sqlite-2",
+<<<<<<< HEAD
   "_where": "C:\\Users\\firivas\\gitU\\Topico2-Tarea3",
+=======
+  "_where": "/Users/eliana.alexia/Desktop/Ayudantia/EarthQuake",
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
   "author": {
     "name": "Nolan Lawson",
     "email": "nolan@nolanlawson.com"

@@ -21,7 +21,11 @@
   "_resolved": "https://registry.npmjs.org/cordova-plugin-file/-/cordova-plugin-file-4.3.3.tgz",
   "_shasum": "012e97aa1afb91f84916e6341b548366d23de9b9",
   "_spec": "cordova-plugin-file@~4.3.3",
+<<<<<<< HEAD
   "_where": "C:\\Users\\firivas\\gitU\\Topico2-Tarea3",
+=======
+  "_where": "/Users/eliana.alexia/Desktop/Ayudantia/EarthQuake",
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
   "author": {
     "name": "Apache Software Foundation"
   },

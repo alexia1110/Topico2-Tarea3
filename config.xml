@@ -23,13 +23,22 @@
         <allow-intent href="itms:*" />
         <allow-intent href="itms-apps:*" />
     </platform>
+<<<<<<< HEAD
+=======
+    <plugin name="cordova-plugin-sqlite-2" />
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
     <plugin name="cordova-plugin-splashscreen" spec="~4.0.3" />
     <plugin name="cordova-plugin-dialogs" spec="~1.3.3" />
     <plugin name="cordova-plugin-file" spec="~4.3.3" />
     <plugin name="cordova-plugin-file-transfer" spec="~1.6.3" />
     <plugin name="cordova-plugin-whitelist" spec="~1.3.3" />
+<<<<<<< HEAD
     <plugin name="cordova-plugin-sqlite-2" spec="~1.0.4" />
     <engine name="android" spec="^7.0.0" />
+=======
+    <plugin name="cordova-plugin-splashscreen" spec="~4.0.3" />
+    <engine name="android" spec="^7.1.0" />
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
     <engine name="browser" spec="^5.0.3" />
     <engine name="ios" spec="^4.5.4" />
 </widget>

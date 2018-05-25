@@ -1,6 +1,7 @@
 cordova.define('cordova/plugin_list', function(require, exports, module) {
 module.exports = [
   {
+<<<<<<< HEAD
     "id": "cordova-plugin-sqlite-2.sqlitePlugin",
     "file": "plugins/cordova-plugin-sqlite-2/dist/sqlite-plugin.js",
     "pluginId": "cordova-plugin-sqlite-2",
@@ -17,6 +18,8 @@ module.exports = [
     ]
   },
   {
+=======
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
     "id": "cordova-plugin-dialogs.notification",
     "file": "plugins/cordova-plugin-dialogs/www/notification.js",
     "pluginId": "cordova-plugin-dialogs",
@@ -212,11 +215,31 @@ module.exports = [
     "clobbers": [
       "window.FileTransfer"
     ]
+<<<<<<< HEAD
+=======
+  },
+  {
+    "id": "cordova-plugin-splashscreen.SplashScreen",
+    "file": "plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+    "pluginId": "cordova-plugin-splashscreen",
+    "clobbers": [
+      "navigator.splashscreen"
+    ]
+  },
+  {
+    "id": "cordova-plugin-sqlite-2.sqlitePlugin",
+    "file": "plugins/cordova-plugin-sqlite-2/dist/sqlite-plugin.js",
+    "pluginId": "cordova-plugin-sqlite-2",
+    "clobbers": [
+      "sqlitePlugin"
+    ]
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
+<<<<<<< HEAD
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-sqlite-2": "1.0.4",
   "cordova-plugin-splashscreen": "4.0.3",
@@ -224,6 +247,15 @@ module.exports.metadata =
   "cordova-plugin-compat": "1.2.0",
   "cordova-plugin-file": "4.3.3",
   "cordova-plugin-file-transfer": "1.6.3"
+=======
+  "cordova-plugin-compat": "1.2.0",
+  "cordova-plugin-dialogs": "1.3.4",
+  "cordova-plugin-file": "4.3.3",
+  "cordova-plugin-file-transfer": "1.6.3",
+  "cordova-plugin-splashscreen": "4.0.3",
+  "cordova-plugin-sqlite-2": "1.0.4",
+  "cordova-plugin-whitelist": "1.3.3"
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
 };
 // BOTTOM OF METADATA
 });

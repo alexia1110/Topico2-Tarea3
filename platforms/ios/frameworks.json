@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
     "libsqlite3.dylib": 1,
     "AudioToolbox.framework": 1
+=======
+    "AudioToolbox.framework": 1,
+    "libsqlite3.dylib": 1
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
 }

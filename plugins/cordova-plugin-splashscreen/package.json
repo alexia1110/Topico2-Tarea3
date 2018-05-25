@@ -21,7 +21,11 @@
   "_resolved": "https://registry.npmjs.org/cordova-plugin-splashscreen/-/cordova-plugin-splashscreen-4.0.3.tgz",
   "_shasum": "773cd1363c1f3bacb9901663e9e3793dd3e0a19d",
   "_spec": "cordova-plugin-splashscreen@~4.0.3",
+<<<<<<< HEAD
   "_where": "C:\\Users\\firivas\\gitU\\Topico2-Tarea3",
+=======
+  "_where": "/Users/eliana.alexia/Desktop/Ayudantia/EarthQuake",
+>>>>>>> 2ce50f5a0680fc8566ead91bcb14e539bc990d96
   "author": {
     "name": "Apache Software Foundation"
   },
