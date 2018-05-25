@@ -104,7 +104,7 @@ function searchEarthQuake(maxlat, maxlng, minlat, minlng) {
 
 function sql2(array = [])
 {	
-	var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 1);
+	var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
 db.transaction(function (txn) {
  txn.executeSql('CREATE TABLE IF NOT EXISTS Lugares (id integer primary key, titulo, magnitud,tiempo)');
   txn.executeSql('delete from Lugares');
