@@ -42,10 +42,10 @@ function changeAddress(geocoder, map) {
                 map: map,
                 position: results[0].geometry.location
               });
-            maxlat = ( results[0].geometry.location.lat() + 5); 
-            maxlng = ( results[0].geometry.location.lng() + 5); 
-            minlat = ( results[0].geometry.location.lat() - 5); 
-            minlng = ( results[0].geometry.location.lng() - 5); 
+            maxlat = ( results[0].geometry.location.lat() + 2); 
+            maxlng = ( results[0].geometry.location.lng() + 2); 
+            minlat = ( results[0].geometry.location.lat() - 2); 
+            minlng = ( results[0].geometry.location.lng() - 2); 
         } else {
             console.log('Fallo ' + status);
         }
@@ -92,7 +92,9 @@ function searchEarthQuake(maxlat, maxlng, minlat, minlng) {
                          console.log(array2[2]);
                 
             }
-
+            for (var i = 0; i<largo;i++){
+                sql2(array[i],array2);
+            }
             
         },
         error: function(result){
@@ -101,24 +103,44 @@ function searchEarthQuake(maxlat, maxlng, minlat, minlng) {
     });
 }
 
-/*
-function sql2(array = string[])
+
+function sql2(array = [], array2 =[])
 {	
-	var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 1);
+    var array2 = [];
+	var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
 db.transaction(function (txn) {
- txn.executeSql('CREATE TABLE IF NOT EXISTS Lugares (id integer primary key, descripcion, magnitud)');
-  txn.executeSql('delete from contactos');
-  txn.executeSql('INSERT INTO contactos (descripcion, magnitud) VALUES (?,?)', [array[0], array[1]]);
+ txn.executeSql('CREATE TABLE IF NOT EXISTS Lugares (id integer primary key, titulo, magnitud,tiempo)');
+  txn.executeSql('delete from Lugares');
   
-  txn.executeSql('SELECT * FROM contactos', [], function(tx, results) {
+        txn.executeSql('INSERT INTO Lugares (tiempo, magnitud,titulo) VALUES (?,?,?)', [array2[0], array2[2],array2[1]]);
+  
+    
+  /*
+  txn.executeSql('SELECT * FROM Lugares', [], function(tx, results) {
 			var len = results.rows.length;
 			var i;
 			console.log(len);
 			for (i = 0; i < len; i++) {
-				$("#lista_de_contactos").append("" + results.rows.item(i).nombre + " - " + results.rows.item(i).telefono + "<br>");
-			}
-		}, null);
+				$("#lista_de_Lugares").append("" + results.rows.item(i).tiempo + " - " + results.rows.item(i).magnitud +" - " + results.rows.item(i).titulo + "<br>");
+			}*/
+		
+
+})
+};//fin function
+
+function sql3(){
+    var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
+db.transaction(function (txn) {
+    txn.executeSql('SELECT * FROM Lugares', [], function(tx, results) {
+        var len = results.rows.length;
+        var i;
+        console.log(len);
+        for (i = 0; i < len; i++) {
+            $("#lista_de_Lugares").append("" + results.rows.item(i).tiempo + " - " + results.rows.item(i).magnitud +" - " + results.rows.item(i).titulo + "<br>");
+        }
+    }, null);
 
 });
-}//fin function
-*/
+}
+
+

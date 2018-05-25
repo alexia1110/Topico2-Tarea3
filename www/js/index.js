@@ -92,8 +92,10 @@ function searchEarthQuake(maxlat, maxlng, minlat, minlng) {
                          console.log(array2[2]);
                 
             }
-
-            sql2(array);
+            for (var i = 0; i<largo;i++){
+                sql2(array[i],array2);
+            }
+            
         },
         error: function(result){
             console.log(result);
@@ -102,26 +104,43 @@ function searchEarthQuake(maxlat, maxlng, minlat, minlng) {
 }
 
 
-function sql2(array = [])
+function sql2(array = [], array2 =[])
 {	
+    var array2 = [];
 	var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
 db.transaction(function (txn) {
  txn.executeSql('CREATE TABLE IF NOT EXISTS Lugares (id integer primary key, titulo, magnitud,tiempo)');
   txn.executeSql('delete from Lugares');
-  for(var i = 0;i<array.length;i++) {
-
-    txn.executeSql('INSERT INTO Lugares (tiempo, magnitud,titulo) VALUES (?,?,?)', [array.array2[0], array.array2[2],array.array2[1]]);
   
-  }
+        txn.executeSql('INSERT INTO Lugares (tiempo, magnitud,titulo) VALUES (?,?,?)', [array2[0], array2[2],array2[1]]);
   
+    
+  /*
   txn.executeSql('SELECT * FROM Lugares', [], function(tx, results) {
 			var len = results.rows.length;
 			var i;
 			console.log(len);
 			for (i = 0; i < len; i++) {
 				$("#lista_de_Lugares").append("" + results.rows.item(i).tiempo + " - " + results.rows.item(i).magnitud +" - " + results.rows.item(i).titulo + "<br>");
-			}
-		}, null);
+			}*/
+		
+
+})
+};//fin function
+
+function sql3(){
+    var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
+db.transaction(function (txn) {
+    txn.executeSql('SELECT * FROM Lugares', [], function(tx, results) {
+        var len = results.rows.length;
+        var i;
+        console.log(len);
+        for (i = 0; i < len; i++) {
+            $("#lista_de_Lugares").append("" + results.rows.item(i).tiempo + " - " + results.rows.item(i).magnitud +" - " + results.rows.item(i).titulo + "<br>");
+        }
+    }, null);
 
 });
-}//fin function
+}
+
+
