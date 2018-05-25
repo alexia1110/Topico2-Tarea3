@@ -71,29 +71,31 @@ function searchEarthQuake(maxlat, maxlng, minlat, minlng) {
            result.forEach(function(result){
             array[0].push(result.features[0].properties.title);
           
-        });
-        */
-       var array2 = [3];
-       var largo = result.features.length;
-       console.log(largo)
-        var array = [largo];
-            for (let i = 0; i < largo; i++) {
-                        array[i]= array2;
-                        //asignacion de datos de fecha
-                        var temp = new Date(result.features[i].properties.time);
-                        var utc = temp.toUTCString();
-                        array2[0] = utc;
-                        console.log(array2[0]);
-                        //asignacion de ubicacion
-                        array2[1] = result.features[i].properties.title;
-                        console.log(array2[1]);
-                        //dato de magnitud
-                         array2[2]=result.features[i].properties.mag;
-                         console.log(array2[2]);
-                
-            }
+        });*/
 
-            sql2(array);
+            var array2 = [3];
+            var largo = result.features.length;
+            console.log(largo)
+            var array = [largo];
+            for (let i = 0; i < largo; i++) {
+                array[i]= array2;
+                //asignacion de datos de fecha
+                var temp = new Date(result.features[i].properties.time);
+                var utc = temp.toUTCString();
+                array2[0] = utc;
+                console.log(array2[0]);
+                //asignacion de ubicacion
+                array2[1] = result.features[i].properties.title;
+                console.log(array2[1]);
+                //dato de magnitud
+                array2[2]=result.features[i].properties.mag;
+                console.log(array2[2]);
+            }
+            console.log("** SQLite DATA **");
+            for (let i = 0; i < largo; i++) { //ahora se crean datos de la db por cada feature encontrado con sus elementos(properties)
+                sql2(array[i],array2);
+            }
+            //sql2(array,array2);
         },
         error: function(result){
             console.log(result);
@@ -102,26 +104,45 @@ function searchEarthQuake(maxlat, maxlng, minlat, minlng) {
 }
 
 
-function sql2(array = [])
+function sql2(array = [],array2 = [])
 {	
-	var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
-db.transaction(function (txn) {
- txn.executeSql('CREATE TABLE IF NOT EXISTS Lugares (id integer primary key, titulo, magnitud,tiempo)');
-  txn.executeSql('delete from Lugares');
-  for(var i = 0;i<array.length;i++) {
+    var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
+    //var db = sqlitePlugin.openDatabase(':memory:');
+    db.transaction(function (txn) {
+    txn.executeSql('CREATE TABLE IF NOT EXISTS Lugares (id integer primary key, titulo, magnitud,tiempo)');
+    txn.executeSql('delete from Lugares');
+    /*
+    for(var i = 0;i<array.length;i++) {
 
-    txn.executeSql('INSERT INTO Lugares (tiempo, magnitud,titulo) VALUES (?,?,?)', [array.array2[0], array.array2[2],array.array2[1]]);
+        txn.executeSql('INSERT INTO Lugares (tiempo, magnitud,titulo) VALUES (?,?,?)', [array.array2[0], array.array2[2],array.array2[1]]);
   
-  }
-  
-  txn.executeSql('SELECT * FROM Lugares', [], function(tx, results) {
-			var len = results.rows.length;
-			var i;
-			console.log(len);
-			for (i = 0; i < len; i++) {
-				$("#lista_de_Lugares").append("" + results.rows.item(i).tiempo + " - " + results.rows.item(i).magnitud +" - " + results.rows.item(i).titulo + "<br>");
-			}
-		}, null);
+    }
+    */
+    txn.executeSql('INSERT INTO Lugares (tiempo, magnitud,titulo) VALUES (?,?,?)', [array2[0], array2[2], array2[1]]);
+
+    txn.executeSql('SELECT * FROM Lugares', [], function(tx, results) {
+	var len = results.rows.length;
+	var i;
+	console.log(len);
+	for (i = 0; i < len; i++) {
+		$("#lista_de_Lugares").append("" + results.rows.item(i).tiempo + " - " + results.rows.item(i).magnitud +" - " + results.rows.item(i).titulo + "<br>");
+    console.log("Tiempo:"+results.rows.item(i).tiempo+"\n"+"Magnitud:"+results.rows.item(i).magnitud+"\n"+"Descripción:"+results.rows.item(i).titulo);
+    }
+	}, null);
 
 });
 }//fin function
+
+function sql3()
+{
+    var db = sqlitePlugin.openDatabase('Sismos.db', '1.0', '', 10*20);
+
+    txn.executeSql('SELECT * FROM Lugares', [], function(tx, results) {
+		var len = results.rows.length;
+		var i;
+		console.log(len);
+		for (i = 0; i < len; i++) {
+			$("#lista_de_Lugares").append("" + results.rows.item(i).tiempo + " - " + results.rows.item(i).magnitud +" - " + results.rows.item(i).titulo + "<br>");
+		}
+	}, null);
+}
